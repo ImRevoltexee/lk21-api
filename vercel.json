@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "functions": {
-    "api/lk21.ts": {
-      "runtime": "nodejs18.x"
+  "builds": [
+    {
+      "src": "api/index.ts",
+      "use": "@vercel/node"
     }
-  }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "api/index.ts"
+    }
+  ]
 }
